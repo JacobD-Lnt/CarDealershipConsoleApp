@@ -7,7 +7,6 @@ namespace CarDealershipConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
 
             CarDealership dealership = new CarDealership();
 
@@ -56,8 +55,8 @@ namespace CarDealershipConsoleApp
             //     }
 
             //        }
-            
-            while(true)
+
+            while (true)
             {
                 Console.WriteLine("Please enter a command");
                 var userCommand = Console.ReadLine();
@@ -125,6 +124,13 @@ namespace CarDealershipConsoleApp
                     }
 
                     dealership.SearchForCar(priceRange, mpg, cylinders, displacement, horsepower, weight, acceleration, model, origin, name);
+                }
+                if (splitString[0] == "buy")
+                {
+                    if (splitString.Length == 2)
+                    {
+                        dealership.BuyCarByIndex(Int32.Parse(splitString[1]));
+                    }
                 }
                 userCommand = "";
             }

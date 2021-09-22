@@ -37,6 +37,14 @@ namespace CarDealershipConsoleApp
 
             Inventory.Remove(someCar);
         }
+         public void BuyCarByIndex(int index)
+        {
+            Car someCar = Inventory[index];
+
+            Console.WriteLine($"You paid ${someCar.Price} for a {_textInfo.ToTitleCase(someCar.CarName)}");
+
+            Inventory.Remove(someCar);
+        }
 
 
         // if a search field is empty, assume it is -1 or blank
@@ -92,6 +100,7 @@ namespace CarDealershipConsoleApp
                 }
             }
         }
-        
+
+
     }
 }

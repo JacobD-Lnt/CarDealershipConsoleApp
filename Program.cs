@@ -11,16 +11,21 @@ namespace CarDealershipConsoleApp
 
             //var autoInfo = FileStyleUriParser.ReadAllText("./data/auto-mpg.csv");
 
+            CarDealership dealership = new CarDealership();
+
             using (var reader = new StreamReader(@"./data/auto-mpg.csv"))
             {
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var lineValues = line.Split(',');
 
-
+                    dealership.MakeCarWithDataLine(line);
                 }
             }
+
+            dealership.PrintInventory();
+
+            dealership.BuyCar(dealership.Inventory[0]);
         }
     }
 }

@@ -87,10 +87,11 @@ namespace CarDealershipConsoleApp
             foreach (KeyValuePair<Car, int> result in searchDictionary.OrderBy(key => -key.Value))
             {
                 if (result.Value > ((float)maxPoints / 2f) + 1)
-                {
-                    Console.WriteLine($"{result.Key.ToString()}");
+                {               
+                    Console.WriteLine($"id: {Inventory.IndexOf(result.Key)} - {result.Key.ToString()}");
                 }
             }
         }
+        
     }
 }

@@ -9,8 +9,6 @@ namespace CarDealershipConsoleApp
         {
             Console.WriteLine("Hello World!");
 
-            //var autoInfo = FileStyleUriParser.ReadAllText("./data/auto-mpg.csv");
-
             CarDealership dealership = new CarDealership();
 
             using (var reader = new StreamReader(@"./data/auto-mpg.csv"))
@@ -23,9 +21,31 @@ namespace CarDealershipConsoleApp
                 }
             }
 
-            dealership.PrintInventory();
+            dealership.SearchForCar(
+                new decimal[] { 10000, 12500 }, // price range
+                18, // mpg
+                8, // cylinders
+                307, // displacement
+                130, // horsepower
+                3504, // weight
+                12, // acceleration
+                70, // model year
+                1, // origin
+                "chevorlet chevelle malibu" // car name
+            );
 
-            dealership.BuyCar(dealership.Inventory[0]);
+            // dealership.SearchForCar(
+            //     new decimal[] { 15000, 17000 }, // price range
+            //     17, // mpg
+            //     8, // cylinders
+            //     302, // displacement
+            //     140, // horsepower
+            //     3449, // weight
+            //     10.5f, // acceleration
+            //     70, // model year
+            //     1, // origin
+            //     "idk" // car name
+            // );
         }
     }
 }
